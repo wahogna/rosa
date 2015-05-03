@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html> 
+<head> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+<link rel="stylesheet" href="sencha-touch-2.3.1/resources/css/sencha-touch.css" type="text/css"> 
+<script type="text/javascript" src="sencha-touch-2.3.1/sencha-touch-all.js"></script> 
+<script type="text/javascript"> 
+Ext.setup ({ 
+onReady: function() { 
+var login = new Ext.form.FormPanel({ 
+fullscreen:     true, 
+scroll:         "vertical", 
+url: "http://74.208.163.240:8080/AwareIM/logonAdmin.aw", 
+standardSubmit: true, 
+defaults:    { labelWidth: '38%' }, 
+items: [ 
+{ 
+xtype:        'hiddenfield', 
+name:         'mobile', 
+value:        'true' 
+}, 
+{ 
+xtype:        'hiddenfield', 
+name:         'mobile_platform', 
+value:        Ext.os.deviceType 
+}, 
+{ 
+xtype:        'hiddenfield', 
+name:         'domain', 
+value:        'Rosas' 
+}, 
+{ 
+xtype:        'textfield', 
+name:         'userName', 
+label:        'Usuario', 
+required:      true 
+}, 
+{ 
+xtype:        'passwordfield', 
+name:         'password', 
+label:        'Contraseña', 
+required:      true 
+}, 
+{ 
+docked:  'top', 
+xtype: 'toolbar', 
+title: 'Rosa´s Perfumería' 
+}, 
+{ 
+docked:  'bottom', 
+xtype:   'toolbar', 
+items: [{ 
+xtype: 'button', 
+text:  'Continuar', 
+scope:  this, 
+handler: function (btn) 
+{ 
+login.submit ({ method: 'post'} ); 
+} 
+}] 
+} 
+] 
+}); 
+} 
+}); 
+</script> 
+</head> 
+<body> 
+</body> 
+</html>
